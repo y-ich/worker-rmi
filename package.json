@@ -1,0 +1,14 @@
+{
+  "name": "worker-rmi",
+  "version": "1.0.0",
+  "description": "Remote Method Invocation for Web Workers",
+  "main": "worker-rmi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ICHIKAWA, Yuji<ichikawa.yuji@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "bson-objectid": "^1.2.3"
+  }
+}
