@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Remote Method Invocation for Web Workers",
   "main": "worker-rmi.js",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/y-ich/worker-rmi.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
