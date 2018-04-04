@@ -32,7 +32,9 @@ In a server side, you already have the class Foo, so call resigterWorkerRMI as f
 
 That's all and should work.
 
-If you hope that client side is a worker and server side is a DOM JS, no problems. The client side is same, and in the server side, the code looks like follows.
+One important note is that all Transferable ojects in arguments and a return value transfer in transferList. So you cannot access these objects after invoking the remote method or returning a result respectively.
+
+If you want that client side is a worker and server side is a DOM JS, no problems. The client side is same, and in the server side, the code looks like follows.
 
     const worker = new Worker('js/worker.js');
     resigterWorkerRMI(worker, Foo);
