@@ -1,6 +1,6 @@
 {
   "name": "worker-rmi",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Remote Method Invocation for Web Workers",
   "main": "worker-rmi.js",
   "repository": {

@@ -1,8 +1,9 @@
+/* global exports */
 /**
  * @fileoverview a tiny library for Web Worker Remote Method Invocation
  *
  */
-import ObjectID from 'bson-objectid';
+const ObjectID = require('bson-objectid');
 
 /**
  * @private returns a list of Transferable objects which {@code obj} includes
@@ -49,7 +50,7 @@ function isTransferable(obj) {
 /**
  * @class base class whose child classes use RMI
  */
-export class WorkerRMI {
+class WorkerRMI {
     /**
      * @constructor
      * @param {object} remote an instance to call postMessage method
@@ -141,7 +142,7 @@ async function handleWorkerRMI(event) {
  * @param {obj} target an instance that receives 'message' events of RMI
  * @param {Class} klass a class to be registered
  */
-export function resigterWorkerRMI(target, klass) {
+function resigterWorkerRMI(target, klass) {
     klass.workerRMI = {
         target,
         instances: {},
@@ -155,7 +156,11 @@ export function resigterWorkerRMI(target, klass) {
  * @param {obj} target an instance that receives 'message' events of RMI
  * @param {Class} klass a class to be unregistered
  */
-export function unresigterWorkerRMI(target, klass) {
+function unresigterWorkerRMI(target, klass) {
     target.removeEventListener('message', klass.workerRMI.handler)
     delete klass.workerRMI;
 }
+
+exports.WorkerRMI = WorkerRMI;
+exports.resigterWorkerRMI = resigterWorkerRMI;
+exports.unresigterWorkerRMI = unresigterWorkerRMI;
