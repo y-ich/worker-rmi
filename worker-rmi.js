@@ -130,9 +130,15 @@ async function handleWorkerRMI(event) {
     } else {
         const instance = this.workerRMI.instances[data.id];
         if (instance) {
-            result = await instance[data.methodName].apply(instance, data.args)
-            message.result = result;
-            this.workerRMI.target.postMessage(message, getTransferList(result));
+            try {
+                result = await instance[data.methodName].apply(instance, data.args)
+                message.result = result;
+                this.workerRMI.target.postMessage(message, getTransferList(result));
+            } catch (e) {
+                console.log(e);
+                message.error = e.toString();
+                this.workerRMI.target.postMessage(message);
+            }
         }
     }
 }
